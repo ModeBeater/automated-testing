@@ -1,0 +1,2834 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.7 on darwin)" generated="2025-11-20T20:19:06.085854" rpa="false" schemaversion="5">
+<suite id="s1" name="Booking Tests" source="/Users/nurkhantashimov/Documents/testing/assignment/testcases/booking_tests.robot">
+<test id="s1-t1" name="TS1 Search For Hotel" line="12">
+<kw name="Search Hotel Template">
+<kw name="Open BrowserStack Browser" owner="keywords">
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-11-20T20:19:06.182332" level="INFO">${browser_class} = ChromeOptions</msg>
+<var>${browser_class}</var>
+<arg>'${browser.lower()}' == 'chrome'</arg>
+<arg>ChromeOptions</arg>
+<arg>'${browser.lower()}' == 'firefox'</arg>
+<arg>FirefoxOptions</arg>
+<arg>'${browser.lower()}' == 'safari'</arg>
+<arg>SafariOptions</arg>
+<arg>'${browser.lower()}' == 'edge'</arg>
+<arg>EdgeOptions</arg>
+<arg>ChromeOptions</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-11-20T20:19:06.182050" elapsed="0.000300"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-11-20T20:19:06.182542" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x1037fa120&gt;</msg>
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].${browser_class}()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-11-20T20:19:06.182423" elapsed="0.000133"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>set_capability</arg>
+<arg>browserVersion</arg>
+<arg>latest</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-11-20T20:19:06.182606" elapsed="0.000052"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-11-20T20:19:06.182808" level="INFO">${bstack_options} = {'os': 'Windows', 'osVersion': '11', 'userName': 'tashimovnurkhan_5YcQMa', 'accessKey': '9cDNjxpyyqwz7VwZzC6g'}</msg>
+<var>${bstack_options}</var>
+<arg>{'os': '${os}', 'osVersion': '${os_version}', 'userName': '${BROWSERSTACK_USER}', 'accessKey': '${BROWSERSTACK_KEY}'}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-11-20T20:19:06.182702" elapsed="0.000121"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>set_capability</arg>
+<arg>bstack:options</arg>
+<arg>${bstack_options}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-11-20T20:19:06.182861" elapsed="0.000058"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:19:06.183099" level="INFO">Opening browser 'firefox' to base url 'https://www.booking.com/' through remote server at 'https://tashimovnurkhan_5YcQMa:9cDNjxpyyqwz7VwZzC6g@hub.browserstack.com/wd/hub'.</msg>
+<msg time="2025-11-20T20:19:12.891117" level="INFO">/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/selenium/webdriver/remote/remote_connection.py:419: UserWarning: Embedding username and password in URL could be insecure, use ClientConfig instead
+  headers = self.get_remote_connection_headers(parsed_url, self._client_config.keep_alive)</msg>
+<arg>${BASE_URL}</arg>
+<arg>remote_url=https://${BROWSERSTACK_USER}:${BROWSERSTACK_KEY}@hub.browserstack.com/wd/hub</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-20T20:19:06.182969" elapsed="6.709858"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-11-20T20:19:12.894800" elapsed="5.205951"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${DESTINATION_INPUT}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-20T20:19:18.101415" elapsed="0.236725"/>
+</kw>
+<arg>${browser}</arg>
+<arg>${os}</arg>
+<arg>${os_version}</arg>
+<status status="PASS" start="2025-11-20T20:19:06.181565" elapsed="12.156839"/>
+</kw>
+<kw name="Search Hotel" owner="keywords">
+<kw name="Remove Overlay Elements" owner="keywords">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:19:18.340164" level="INFO">Executing JavaScript:
+try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}
+Without any arguments.</msg>
+<arg>try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:19:18.339656" elapsed="0.173359"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-20T20:19:19.014785" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-20T20:19:18.513519" elapsed="0.501545"/>
+</kw>
+<status status="PASS" start="2025-11-20T20:19:18.339399" elapsed="0.675949"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${DESTINATION_INPUT}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-20T20:19:19.015740" elapsed="0.414714"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${DESTINATION_INPUT}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-20T20:19:19.430950" elapsed="0.809111"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:19:20.241367" level="INFO">Typing text 'Almaty' into text field 'xpath=//input[@name='ss']'.</msg>
+<arg>${DESTINATION_INPUT}</arg>
+<arg>${city}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-20T20:19:20.240603" elapsed="0.923606"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-20T20:19:22.165278" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-20T20:19:21.164672" elapsed="1.000871"/>
+</kw>
+<kw name="Remove Overlay Elements" owner="keywords">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:19:22.167653" level="INFO">Executing JavaScript:
+try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}
+Without any arguments.</msg>
+<arg>try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:19:22.166779" elapsed="0.216918"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-20T20:19:22.886510" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-20T20:19:22.383922" elapsed="0.502865"/>
+</kw>
+<status status="PASS" start="2025-11-20T20:19:22.166075" elapsed="0.721717"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${SEARCH_BUTTON}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-20T20:19:22.888263" elapsed="0.374211"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${SEARCH_BUTTON}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-11-20T20:19:23.263018" elapsed="0.490796"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${SEARCH_BUTTON}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-11-20T20:19:23.754369" elapsed="0.666956"/>
+</kw>
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:19:24.573112" level="INFO">${element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="ffc2e0ca8a669f8aa27ff805ca7f463122e3c62e", element="f.BFBADB1BC799BF3BF3B6E232F19358CF.d.034400FBF8892D28353A4EAB9A2FBA80.e.196")&gt;</msg>
+<var>${element}</var>
+<arg>${SEARCH_BUTTON}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2025-11-20T20:19:24.421841" elapsed="0.151405"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:19:24.574866" level="INFO">Executing JavaScript:
+return arguments[0].click();
+By using argument:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="ffc2e0ca8a669f8aa27ff805ca7f463122e3c62e", element="f.BFBADB1BC799BF3BF3B6E232F19358CF.d.034400FBF8892D28353A4EAB9A2FBA80.e.196")&gt;'</msg>
+<arg>return arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${element}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:19:24.573709" elapsed="6.938945"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${HOTEL_CARD}</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-20T20:19:31.513212" elapsed="0.487758"/>
+</kw>
+<arg>${CITY}</arg>
+<status status="PASS" start="2025-11-20T20:19:18.338935" elapsed="13.662347"/>
+</kw>
+<arg>chrome</arg>
+<arg>Windows</arg>
+<arg>11</arg>
+<tag>chrome</tag>
+<status status="PASS" start="2025-11-20T20:19:06.181380" elapsed="25.820103"/>
+</kw>
+<kw name="Search Hotel Template">
+<kw name="Open BrowserStack Browser" owner="keywords">
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-11-20T20:19:32.007937" level="INFO">${browser_class} = FirefoxOptions</msg>
+<var>${browser_class}</var>
+<arg>'${browser.lower()}' == 'chrome'</arg>
+<arg>ChromeOptions</arg>
+<arg>'${browser.lower()}' == 'firefox'</arg>
+<arg>FirefoxOptions</arg>
+<arg>'${browser.lower()}' == 'safari'</arg>
+<arg>SafariOptions</arg>
+<arg>'${browser.lower()}' == 'edge'</arg>
+<arg>EdgeOptions</arg>
+<arg>ChromeOptions</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-11-20T20:19:32.004586" elapsed="0.003449"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-11-20T20:19:32.009272" level="INFO">${options} = &lt;selenium.webdriver.firefox.options.Options object at 0x1030e9010&gt;</msg>
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].${browser_class}()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-11-20T20:19:32.008448" elapsed="0.000912"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>set_capability</arg>
+<arg>browserVersion</arg>
+<arg>latest</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-11-20T20:19:32.009671" elapsed="0.000385"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-11-20T20:19:32.011231" level="INFO">${bstack_options} = {'os': 'Windows', 'osVersion': '11', 'userName': 'tashimovnurkhan_5YcQMa', 'accessKey': '9cDNjxpyyqwz7VwZzC6g'}</msg>
+<var>${bstack_options}</var>
+<arg>{'os': '${os}', 'osVersion': '${os_version}', 'userName': '${BROWSERSTACK_USER}', 'accessKey': '${BROWSERSTACK_KEY}'}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-11-20T20:19:32.010364" elapsed="0.000954"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>set_capability</arg>
+<arg>bstack:options</arg>
+<arg>${bstack_options}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-11-20T20:19:32.011603" elapsed="0.000401"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:19:32.013284" level="INFO">Opening browser 'firefox' to base url 'https://www.booking.com/' through remote server at 'https://tashimovnurkhan_5YcQMa:9cDNjxpyyqwz7VwZzC6g@hub.browserstack.com/wd/hub'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>remote_url=https://${BROWSERSTACK_USER}:${BROWSERSTACK_KEY}@hub.browserstack.com/wd/hub</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-20T20:19:32.012382" elapsed="13.615916"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-11-20T20:19:45.630516" elapsed="0.809816"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${DESTINATION_INPUT}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-20T20:19:46.440661" elapsed="2.209576"/>
+</kw>
+<arg>${browser}</arg>
+<arg>${os}</arg>
+<arg>${os_version}</arg>
+<status status="PASS" start="2025-11-20T20:19:32.003528" elapsed="16.646901"/>
+</kw>
+<kw name="Search Hotel" owner="keywords">
+<kw name="Remove Overlay Elements" owner="keywords">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:19:48.654503" level="INFO">Executing JavaScript:
+try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}
+Without any arguments.</msg>
+<arg>try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:19:48.653287" elapsed="1.071264"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-20T20:19:50.226533" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-20T20:19:49.725085" elapsed="0.501730"/>
+</kw>
+<status status="PASS" start="2025-11-20T20:19:48.652955" elapsed="1.574114"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${DESTINATION_INPUT}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-20T20:19:50.227476" elapsed="1.665969"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${DESTINATION_INPUT}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-20T20:19:51.893960" elapsed="0.989182"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:19:52.883694" level="INFO">Typing text 'Almaty' into text field 'xpath=//input[@name='ss']'.</msg>
+<arg>${DESTINATION_INPUT}</arg>
+<arg>${city}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-20T20:19:52.883371" elapsed="0.705513"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-20T20:19:54.590262" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-20T20:19:53.589151" elapsed="1.001346"/>
+</kw>
+<kw name="Remove Overlay Elements" owner="keywords">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:19:54.592270" level="INFO">Executing JavaScript:
+try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}
+Without any arguments.</msg>
+<arg>try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:19:54.591512" elapsed="0.509407"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-20T20:19:55.602030" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-20T20:19:55.101371" elapsed="0.500927"/>
+</kw>
+<status status="PASS" start="2025-11-20T20:19:54.590958" elapsed="1.011591"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${SEARCH_BUTTON}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-20T20:19:55.602924" elapsed="0.268979"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${SEARCH_BUTTON}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-11-20T20:19:55.872468" elapsed="0.424179"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${SEARCH_BUTTON}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-11-20T20:19:56.297176" elapsed="0.551858"/>
+</kw>
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:19:57.001744" level="INFO">${element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="2af589d04082fc99b8aa7e611ce7c11b3829da86", element="950e3ebb-466a-4b7c-9698-e603c487f4f4")&gt;</msg>
+<var>${element}</var>
+<arg>${SEARCH_BUTTON}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2025-11-20T20:19:56.849504" elapsed="0.152324"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:19:57.002908" level="INFO">Executing JavaScript:
+return arguments[0].click();
+By using argument:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="2af589d04082fc99b8aa7e611ce7c11b3829da86", element="950e3ebb-466a-4b7c-9698-e603c487f4f4")&gt;'</msg>
+<arg>return arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${element}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:19:57.002235" elapsed="0.149622"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${HOTEL_CARD}</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-20T20:19:57.152372" elapsed="1.750377"/>
+</kw>
+<arg>${CITY}</arg>
+<status status="PASS" start="2025-11-20T20:19:48.652123" elapsed="10.250953"/>
+</kw>
+<arg>firefox</arg>
+<arg>Windows</arg>
+<arg>11</arg>
+<tag>chrome</tag>
+<status status="PASS" start="2025-11-20T20:19:32.002496" elapsed="26.900755"/>
+</kw>
+<kw name="Search Hotel Template">
+<kw name="Open BrowserStack Browser" owner="keywords">
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-11-20T20:19:58.907913" level="INFO">${browser_class} = SafariOptions</msg>
+<var>${browser_class}</var>
+<arg>'${browser.lower()}' == 'chrome'</arg>
+<arg>ChromeOptions</arg>
+<arg>'${browser.lower()}' == 'firefox'</arg>
+<arg>FirefoxOptions</arg>
+<arg>'${browser.lower()}' == 'safari'</arg>
+<arg>SafariOptions</arg>
+<arg>'${browser.lower()}' == 'edge'</arg>
+<arg>EdgeOptions</arg>
+<arg>ChromeOptions</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-11-20T20:19:58.905585" elapsed="0.002380"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-11-20T20:19:58.908574" level="INFO">${options} = &lt;selenium.webdriver.safari.options.Options object at 0x1030e9010&gt;</msg>
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].${browser_class}()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-11-20T20:19:58.908187" elapsed="0.000428"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>set_capability</arg>
+<arg>browserVersion</arg>
+<arg>latest</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-11-20T20:19:58.908774" elapsed="0.000176"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-11-20T20:19:58.909498" level="INFO">${bstack_options} = {'os': 'OS X', 'osVersion': 'Sonoma', 'userName': 'tashimovnurkhan_5YcQMa', 'accessKey': '9cDNjxpyyqwz7VwZzC6g'}</msg>
+<var>${bstack_options}</var>
+<arg>{'os': '${os}', 'osVersion': '${os_version}', 'userName': '${BROWSERSTACK_USER}', 'accessKey': '${BROWSERSTACK_KEY}'}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-11-20T20:19:58.909100" elapsed="0.000439"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>set_capability</arg>
+<arg>bstack:options</arg>
+<arg>${bstack_options}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-11-20T20:19:58.909693" elapsed="0.000204"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:19:58.910523" level="INFO">Opening browser 'firefox' to base url 'https://www.booking.com/' through remote server at 'https://tashimovnurkhan_5YcQMa:9cDNjxpyyqwz7VwZzC6g@hub.browserstack.com/wd/hub'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>remote_url=https://${BROWSERSTACK_USER}:${BROWSERSTACK_KEY}@hub.browserstack.com/wd/hub</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-20T20:19:58.910088" elapsed="4.983618"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-11-20T20:20:03.893940" elapsed="0.166291"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${DESTINATION_INPUT}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-20T20:20:04.060691" elapsed="1.384145"/>
+</kw>
+<arg>${browser}</arg>
+<arg>${os}</arg>
+<arg>${os_version}</arg>
+<status status="PASS" start="2025-11-20T20:19:58.905020" elapsed="6.540141"/>
+</kw>
+<kw name="Search Hotel" owner="keywords">
+<kw name="Remove Overlay Elements" owner="keywords">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:20:05.447482" level="INFO">Executing JavaScript:
+try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}
+Without any arguments.</msg>
+<arg>try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:20:05.446972" elapsed="0.130728"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-20T20:20:06.079911" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-20T20:20:05.578190" elapsed="0.502001"/>
+</kw>
+<status status="PASS" start="2025-11-20T20:20:05.446679" elapsed="0.633774"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${DESTINATION_INPUT}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-20T20:20:06.080849" elapsed="0.462507"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${DESTINATION_INPUT}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-20T20:20:06.543721" elapsed="0.291384"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:20:06.836337" level="INFO">Typing text 'Almaty' into text field 'xpath=//input[@name='ss']'.</msg>
+<arg>${DESTINATION_INPUT}</arg>
+<arg>${city}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-20T20:20:06.835588" elapsed="0.436646"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-20T20:20:08.274967" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-20T20:20:07.272713" elapsed="1.002537"/>
+</kw>
+<kw name="Remove Overlay Elements" owner="keywords">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:20:08.277485" level="INFO">Executing JavaScript:
+try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}
+Without any arguments.</msg>
+<arg>try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:20:08.276576" elapsed="0.430114"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-20T20:20:09.209995" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-20T20:20:08.707167" elapsed="0.503120"/>
+</kw>
+<status status="PASS" start="2025-11-20T20:20:08.275795" elapsed="0.934783"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${SEARCH_BUTTON}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-20T20:20:09.210993" elapsed="0.351105"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${SEARCH_BUTTON}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-11-20T20:20:09.562580" elapsed="3.402408"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${SEARCH_BUTTON}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-11-20T20:20:12.965454" elapsed="0.493501"/>
+</kw>
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:20:13.583190" level="INFO">${element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="289d8cd96b28d8c4887a60ed04032eed0ca13925", element="node-65F9C1E4-4F47-46B3-BF4D-691F8CFE5C83")&gt;</msg>
+<var>${element}</var>
+<arg>${SEARCH_BUTTON}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2025-11-20T20:20:13.459150" elapsed="0.124168"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:20:13.584842" level="INFO">Executing JavaScript:
+return arguments[0].click();
+By using argument:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="289d8cd96b28d8c4887a60ed04032eed0ca13925", element="node-65F9C1E4-4F47-46B3-BF4D-691F8CFE5C83")&gt;'</msg>
+<arg>return arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${element}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:20:13.583770" elapsed="0.157605"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${HOTEL_CARD}</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-20T20:20:13.741875" elapsed="1.562247"/>
+</kw>
+<arg>${CITY}</arg>
+<status status="PASS" start="2025-11-20T20:20:05.445820" elapsed="9.858811"/>
+</kw>
+<arg>safari</arg>
+<arg>OS X</arg>
+<arg>Sonoma</arg>
+<tag>chrome</tag>
+<status status="PASS" start="2025-11-20T20:19:58.904177" elapsed="16.400665"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-11-20T20:20:15.305828" elapsed="1.278164"/>
+</kw>
+<status status="PASS" start="2025-11-20T20:19:06.181077" elapsed="70.403096"/>
+</test>
+<test id="s1-t2" name="TS2 Filter By 5-Star Hotels" line="18">
+<kw name="Filter By 5 Star Template">
+<kw name="Open BrowserStack Browser" owner="keywords">
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-11-20T20:20:16.586792" level="INFO">${browser_class} = ChromeOptions</msg>
+<var>${browser_class}</var>
+<arg>'${browser.lower()}' == 'chrome'</arg>
+<arg>ChromeOptions</arg>
+<arg>'${browser.lower()}' == 'firefox'</arg>
+<arg>FirefoxOptions</arg>
+<arg>'${browser.lower()}' == 'safari'</arg>
+<arg>SafariOptions</arg>
+<arg>'${browser.lower()}' == 'edge'</arg>
+<arg>EdgeOptions</arg>
+<arg>ChromeOptions</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-11-20T20:20:16.586172" elapsed="0.000655"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-11-20T20:20:16.587198" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x103884b90&gt;</msg>
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].${browser_class}()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-11-20T20:20:16.586962" elapsed="0.000259"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>set_capability</arg>
+<arg>browserVersion</arg>
+<arg>latest</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-11-20T20:20:16.587309" elapsed="0.000095"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-11-20T20:20:16.587713" level="INFO">${bstack_options} = {'os': 'Windows', 'osVersion': '11', 'userName': 'tashimovnurkhan_5YcQMa', 'accessKey': '9cDNjxpyyqwz7VwZzC6g'}</msg>
+<var>${bstack_options}</var>
+<arg>{'os': '${os}', 'osVersion': '${os_version}', 'userName': '${BROWSERSTACK_USER}', 'accessKey': '${BROWSERSTACK_KEY}'}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-11-20T20:20:16.587490" elapsed="0.000247"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>set_capability</arg>
+<arg>bstack:options</arg>
+<arg>${bstack_options}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-11-20T20:20:16.588223" elapsed="0.000212"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:20:16.589125" level="INFO">Opening browser 'firefox' to base url 'https://www.booking.com/' through remote server at 'https://tashimovnurkhan_5YcQMa:9cDNjxpyyqwz7VwZzC6g@hub.browserstack.com/wd/hub'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>remote_url=https://${BROWSERSTACK_USER}:${BROWSERSTACK_KEY}@hub.browserstack.com/wd/hub</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-20T20:20:16.588679" elapsed="6.800969"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-11-20T20:20:23.390165" elapsed="6.184898"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${DESTINATION_INPUT}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-20T20:20:29.575391" elapsed="0.564791"/>
+</kw>
+<arg>${browser}</arg>
+<arg>${os}</arg>
+<arg>${os_version}</arg>
+<status status="PASS" start="2025-11-20T20:20:16.585759" elapsed="13.554738"/>
+</kw>
+<kw name="Search Hotel" owner="keywords">
+<kw name="Remove Overlay Elements" owner="keywords">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:20:30.143480" level="INFO">Executing JavaScript:
+try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}
+Without any arguments.</msg>
+<arg>try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:20:30.142700" elapsed="0.159311"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-20T20:20:30.805546" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-20T20:20:30.302489" elapsed="0.503333"/>
+</kw>
+<status status="PASS" start="2025-11-20T20:20:30.142070" elapsed="0.664014"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${DESTINATION_INPUT}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-20T20:20:30.806452" elapsed="0.662080"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${DESTINATION_INPUT}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-20T20:20:31.469032" elapsed="0.658958"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:20:32.129306" level="INFO">Typing text 'Almaty' into text field 'xpath=//input[@name='ss']'.</msg>
+<arg>${DESTINATION_INPUT}</arg>
+<arg>${city}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-20T20:20:32.128513" elapsed="0.658246"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-20T20:20:33.788658" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-20T20:20:32.787219" elapsed="1.001759"/>
+</kw>
+<kw name="Remove Overlay Elements" owner="keywords">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:20:33.791448" level="INFO">Executing JavaScript:
+try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}
+Without any arguments.</msg>
+<arg>try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:20:33.790384" elapsed="0.486661"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-20T20:20:34.778458" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-20T20:20:34.277511" elapsed="0.501202"/>
+</kw>
+<status status="PASS" start="2025-11-20T20:20:33.789637" elapsed="0.989319"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${SEARCH_BUTTON}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-20T20:20:34.779351" elapsed="0.367488"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${SEARCH_BUTTON}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-11-20T20:20:35.147379" elapsed="0.460333"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${SEARCH_BUTTON}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-11-20T20:20:35.608274" elapsed="0.599828"/>
+</kw>
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:20:36.702235" level="INFO">${element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="9252bd1a9dbaa32f4aa481b8bbda6158bf5752e6", element="f.3A6BE60E33AC1AA3041F8714F5CF3556.d.6C6CA25CDEE27E69FBD1109896007F8A.e.152")&gt;</msg>
+<var>${element}</var>
+<arg>${SEARCH_BUTTON}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2025-11-20T20:20:36.208613" elapsed="0.493760"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:20:36.703874" level="INFO">Executing JavaScript:
+return arguments[0].click();
+By using argument:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="9252bd1a9dbaa32f4aa481b8bbda6158bf5752e6", element="f.3A6BE60E33AC1AA3041F8714F5CF3556.d.6C6CA25CDEE27E69FBD1109896007F8A.e.152")&gt;'</msg>
+<arg>return arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${element}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:20:36.702797" elapsed="3.879682"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${HOTEL_CARD}</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-20T20:20:40.583314" elapsed="0.710547"/>
+</kw>
+<arg>${CITY}</arg>
+<status status="PASS" start="2025-11-20T20:20:30.141160" elapsed="11.152999"/>
+</kw>
+<kw name="Filter By 5 Star" owner="keywords">
+<kw name="Remove Overlay Elements" owner="keywords">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:20:41.296061" level="INFO">Executing JavaScript:
+try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}
+Without any arguments.</msg>
+<arg>try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:20:41.295502" elapsed="0.170964"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-20T20:20:41.969075" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-20T20:20:41.466957" elapsed="0.502407"/>
+</kw>
+<status status="PASS" start="2025-11-20T20:20:41.295215" elapsed="0.674429"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${STAR_FILTER_5}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-20T20:20:41.970038" elapsed="0.308156"/>
+</kw>
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:20:42.438753" level="INFO">${element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="9252bd1a9dbaa32f4aa481b8bbda6158bf5752e6", element="f.3A6BE60E33AC1AA3041F8714F5CF3556.d.ACD9451746F6102FB927B61CFBF8E117.e.380")&gt;</msg>
+<var>${element}</var>
+<arg>${STAR_FILTER_5}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2025-11-20T20:20:42.278687" elapsed="0.160149"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:20:42.439730" level="INFO">Executing JavaScript:
+arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});
+By using argument:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="9252bd1a9dbaa32f4aa481b8bbda6158bf5752e6", element="f.3A6BE60E33AC1AA3041F8714F5CF3556.d.ACD9451746F6102FB927B61CFBF8E117.e.380")&gt;'</msg>
+<arg>arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});</arg>
+<arg>ARGUMENTS</arg>
+<arg>${element}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:20:42.439090" elapsed="0.131640"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-20T20:20:43.572123" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-20T20:20:42.571170" elapsed="1.001243"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${STAR_FILTER_5}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-11-20T20:20:43.572889" elapsed="0.619582"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:20:44.194199" level="INFO">Executing JavaScript:
+return arguments[0].click();
+By using argument:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="9252bd1a9dbaa32f4aa481b8bbda6158bf5752e6", element="f.3A6BE60E33AC1AA3041F8714F5CF3556.d.ACD9451746F6102FB927B61CFBF8E117.e.380")&gt;'</msg>
+<arg>return arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${element}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:20:44.192973" elapsed="0.146178"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${HOTEL_CARD}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-20T20:20:44.339670" elapsed="0.284633"/>
+</kw>
+<status status="PASS" start="2025-11-20T20:20:41.294718" elapsed="3.329882"/>
+</kw>
+<arg>chrome</arg>
+<arg>Windows</arg>
+<arg>11</arg>
+<tag>chrome</tag>
+<status status="PASS" start="2025-11-20T20:20:16.585294" elapsed="28.039479"/>
+</kw>
+<kw name="Filter By 5 Star Template">
+<kw name="Open BrowserStack Browser" owner="keywords">
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-11-20T20:20:44.628956" level="INFO">${browser_class} = FirefoxOptions</msg>
+<var>${browser_class}</var>
+<arg>'${browser.lower()}' == 'chrome'</arg>
+<arg>ChromeOptions</arg>
+<arg>'${browser.lower()}' == 'firefox'</arg>
+<arg>FirefoxOptions</arg>
+<arg>'${browser.lower()}' == 'safari'</arg>
+<arg>SafariOptions</arg>
+<arg>'${browser.lower()}' == 'edge'</arg>
+<arg>EdgeOptions</arg>
+<arg>ChromeOptions</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-11-20T20:20:44.627296" elapsed="0.001708"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-11-20T20:20:44.629613" level="INFO">${options} = &lt;selenium.webdriver.firefox.options.Options object at 0x10376a490&gt;</msg>
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].${browser_class}()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-11-20T20:20:44.629209" elapsed="0.000446"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>set_capability</arg>
+<arg>browserVersion</arg>
+<arg>latest</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-11-20T20:20:44.629811" elapsed="0.000186"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-11-20T20:20:44.630616" level="INFO">${bstack_options} = {'os': 'Windows', 'osVersion': '11', 'userName': 'tashimovnurkhan_5YcQMa', 'accessKey': '9cDNjxpyyqwz7VwZzC6g'}</msg>
+<var>${bstack_options}</var>
+<arg>{'os': '${os}', 'osVersion': '${os_version}', 'userName': '${BROWSERSTACK_USER}', 'accessKey': '${BROWSERSTACK_KEY}'}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-11-20T20:20:44.630154" elapsed="0.000506"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>set_capability</arg>
+<arg>bstack:options</arg>
+<arg>${bstack_options}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-11-20T20:20:44.630809" elapsed="0.000204"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:20:44.631656" level="INFO">Opening browser 'firefox' to base url 'https://www.booking.com/' through remote server at 'https://tashimovnurkhan_5YcQMa:9cDNjxpyyqwz7VwZzC6g@hub.browserstack.com/wd/hub'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>remote_url=https://${BROWSERSTACK_USER}:${BROWSERSTACK_KEY}@hub.browserstack.com/wd/hub</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-20T20:20:44.631200" elapsed="16.298304"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-11-20T20:21:00.929725" elapsed="0.510097"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${DESTINATION_INPUT}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-20T20:21:01.440053" elapsed="1.979943"/>
+</kw>
+<arg>${browser}</arg>
+<arg>${os}</arg>
+<arg>${os_version}</arg>
+<status status="PASS" start="2025-11-20T20:20:44.626731" elapsed="18.793559"/>
+</kw>
+<kw name="Search Hotel" owner="keywords">
+<kw name="Remove Overlay Elements" owner="keywords">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:21:03.423156" level="INFO">Executing JavaScript:
+try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}
+Without any arguments.</msg>
+<arg>try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:21:03.422499" elapsed="0.366855"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-20T20:21:04.292254" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-20T20:21:03.790531" elapsed="0.501997"/>
+</kw>
+<status status="PASS" start="2025-11-20T20:21:03.421839" elapsed="0.870943"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${DESTINATION_INPUT}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-20T20:21:04.293141" elapsed="1.037700"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${DESTINATION_INPUT}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-20T20:21:05.331351" elapsed="1.146012"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:21:06.478628" level="INFO">Typing text 'Almaty' into text field 'xpath=//input[@name='ss']'.</msg>
+<arg>${DESTINATION_INPUT}</arg>
+<arg>${city}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-20T20:21:06.477895" elapsed="1.749459"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-20T20:21:09.230765" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-20T20:21:08.227813" elapsed="1.003265"/>
+</kw>
+<kw name="Remove Overlay Elements" owner="keywords">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:21:09.233130" level="INFO">Executing JavaScript:
+try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}
+Without any arguments.</msg>
+<arg>try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:21:09.232496" elapsed="0.137687"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-20T20:21:09.871694" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-20T20:21:09.370659" elapsed="0.501172"/>
+</kw>
+<status status="PASS" start="2025-11-20T20:21:09.231738" elapsed="0.640205"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${SEARCH_BUTTON}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-20T20:21:09.872104" elapsed="0.281969"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${SEARCH_BUTTON}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-11-20T20:21:10.154312" elapsed="0.419573"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${SEARCH_BUTTON}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-11-20T20:21:10.574366" elapsed="0.549473"/>
+</kw>
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:21:11.274620" level="INFO">${element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="052ea2bf77901ef3614d47c00789653e26386d7b", element="5b1b15e4-b4aa-486a-8a76-aa71c854e4d7")&gt;</msg>
+<var>${element}</var>
+<arg>${SEARCH_BUTTON}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2025-11-20T20:21:11.124384" elapsed="0.150383"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:21:11.276446" level="INFO">Executing JavaScript:
+return arguments[0].click();
+By using argument:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="052ea2bf77901ef3614d47c00789653e26386d7b", element="5b1b15e4-b4aa-486a-8a76-aa71c854e4d7")&gt;'</msg>
+<arg>return arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${element}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:21:11.275247" elapsed="0.158392"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${HOTEL_CARD}</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-20T20:21:11.434128" elapsed="2.180269"/>
+</kw>
+<arg>${CITY}</arg>
+<status status="PASS" start="2025-11-20T20:21:03.420902" elapsed="10.193660"/>
+</kw>
+<kw name="Filter By 5 Star" owner="keywords">
+<kw name="Remove Overlay Elements" owner="keywords">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:21:13.615905" level="INFO">Executing JavaScript:
+try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}
+Without any arguments.</msg>
+<arg>try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:21:13.615259" elapsed="0.204510"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-20T20:21:14.321047" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-20T20:21:13.820022" elapsed="0.501329"/>
+</kw>
+<status status="PASS" start="2025-11-20T20:21:13.615067" elapsed="0.706568"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${STAR_FILTER_5}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-20T20:21:14.322041" elapsed="1.278656"/>
+</kw>
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:21:15.863099" level="INFO">${element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="052ea2bf77901ef3614d47c00789653e26386d7b", element="df072071-dd43-444f-90b2-ca03601837a3")&gt;</msg>
+<var>${element}</var>
+<arg>${STAR_FILTER_5}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2025-11-20T20:21:15.600910" elapsed="0.262320"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:21:15.865561" level="INFO">Executing JavaScript:
+arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});
+By using argument:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="052ea2bf77901ef3614d47c00789653e26386d7b", element="df072071-dd43-444f-90b2-ca03601837a3")&gt;'</msg>
+<arg>arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});</arg>
+<arg>ARGUMENTS</arg>
+<arg>${element}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:21:15.863680" elapsed="0.169590"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-20T20:21:17.035087" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-20T20:21:16.034189" elapsed="1.001070"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${STAR_FILTER_5}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-11-20T20:21:17.036273" elapsed="0.407478"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:21:17.445427" level="INFO">Executing JavaScript:
+return arguments[0].click();
+By using argument:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="052ea2bf77901ef3614d47c00789653e26386d7b", element="df072071-dd43-444f-90b2-ca03601837a3")&gt;'</msg>
+<arg>return arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${element}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:21:17.444267" elapsed="0.150122"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${HOTEL_CARD}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-20T20:21:17.594611" elapsed="0.135630"/>
+</kw>
+<status status="PASS" start="2025-11-20T20:21:13.614800" elapsed="4.115754"/>
+</kw>
+<arg>firefox</arg>
+<arg>Windows</arg>
+<arg>11</arg>
+<tag>chrome</tag>
+<status status="PASS" start="2025-11-20T20:20:44.625733" elapsed="33.105028"/>
+</kw>
+<kw name="Filter By 5 Star Template">
+<kw name="Open BrowserStack Browser" owner="keywords">
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-11-20T20:21:17.736064" level="INFO">${browser_class} = SafariOptions</msg>
+<var>${browser_class}</var>
+<arg>'${browser.lower()}' == 'chrome'</arg>
+<arg>ChromeOptions</arg>
+<arg>'${browser.lower()}' == 'firefox'</arg>
+<arg>FirefoxOptions</arg>
+<arg>'${browser.lower()}' == 'safari'</arg>
+<arg>SafariOptions</arg>
+<arg>'${browser.lower()}' == 'edge'</arg>
+<arg>EdgeOptions</arg>
+<arg>ChromeOptions</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-11-20T20:21:17.732906" elapsed="0.003237"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-11-20T20:21:17.737133" level="INFO">${options} = &lt;selenium.webdriver.safari.options.Options object at 0x1038856d0&gt;</msg>
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].${browser_class}()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-11-20T20:21:17.736500" elapsed="0.000700"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>set_capability</arg>
+<arg>browserVersion</arg>
+<arg>latest</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-11-20T20:21:17.737445" elapsed="0.000191"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-11-20T20:21:17.738249" level="INFO">${bstack_options} = {'os': 'OS X', 'osVersion': 'Sonoma', 'userName': 'tashimovnurkhan_5YcQMa', 'accessKey': '9cDNjxpyyqwz7VwZzC6g'}</msg>
+<var>${bstack_options}</var>
+<arg>{'os': '${os}', 'osVersion': '${os_version}', 'userName': '${BROWSERSTACK_USER}', 'accessKey': '${BROWSERSTACK_KEY}'}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-11-20T20:21:17.737786" elapsed="0.000507"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>set_capability</arg>
+<arg>bstack:options</arg>
+<arg>${bstack_options}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-11-20T20:21:17.738445" elapsed="0.000218"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:21:17.739321" level="INFO">Opening browser 'firefox' to base url 'https://www.booking.com/' through remote server at 'https://tashimovnurkhan_5YcQMa:9cDNjxpyyqwz7VwZzC6g@hub.browserstack.com/wd/hub'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>remote_url=https://${BROWSERSTACK_USER}:${BROWSERSTACK_KEY}@hub.browserstack.com/wd/hub</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-20T20:21:17.738863" elapsed="5.525122"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-11-20T20:21:23.264457" elapsed="0.145547"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${DESTINATION_INPUT}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-20T20:21:23.410512" elapsed="1.575408"/>
+</kw>
+<arg>${browser}</arg>
+<arg>${os}</arg>
+<arg>${os_version}</arg>
+<status status="PASS" start="2025-11-20T20:21:17.732285" elapsed="7.254101"/>
+</kw>
+<kw name="Search Hotel" owner="keywords">
+<kw name="Remove Overlay Elements" owner="keywords">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:21:24.989098" level="INFO">Executing JavaScript:
+try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}
+Without any arguments.</msg>
+<arg>try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:21:24.988261" elapsed="0.144606"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-20T20:21:25.634259" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-20T20:21:25.133418" elapsed="0.501117"/>
+</kw>
+<status status="PASS" start="2025-11-20T20:21:24.987934" elapsed="0.646869"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${DESTINATION_INPUT}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-20T20:21:25.635214" elapsed="0.679791"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${DESTINATION_INPUT}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-20T20:21:26.315508" elapsed="0.268187"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:21:26.584651" level="INFO">Typing text 'Almaty' into text field 'xpath=//input[@name='ss']'.</msg>
+<arg>${DESTINATION_INPUT}</arg>
+<arg>${city}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-20T20:21:26.584000" elapsed="0.746929"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-20T20:21:28.334730" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-20T20:21:27.333730" elapsed="1.001722"/>
+</kw>
+<kw name="Remove Overlay Elements" owner="keywords">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:21:28.340451" level="INFO">Executing JavaScript:
+try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}
+Without any arguments.</msg>
+<arg>try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:21:28.337526" elapsed="0.135438"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-20T20:21:28.974873" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-20T20:21:28.473465" elapsed="0.501547"/>
+</kw>
+<status status="PASS" start="2025-11-20T20:21:28.336541" elapsed="0.638582"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${SEARCH_BUTTON}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-20T20:21:28.975277" elapsed="0.262131"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${SEARCH_BUTTON}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-11-20T20:21:29.237702" elapsed="0.673770"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${SEARCH_BUTTON}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-11-20T20:21:29.911962" elapsed="1.116421"/>
+</kw>
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:21:31.151310" level="INFO">${element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="2663237b588d3421fbe44e5d5beff4896a9e6537", element="node-432965BB-A399-4E8A-BE71-0EE313493791")&gt;</msg>
+<var>${element}</var>
+<arg>${SEARCH_BUTTON}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2025-11-20T20:21:31.028594" elapsed="0.122794"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:21:31.152296" level="INFO">Executing JavaScript:
+return arguments[0].click();
+By using argument:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="2663237b588d3421fbe44e5d5beff4896a9e6537", element="node-432965BB-A399-4E8A-BE71-0EE313493791")&gt;'</msg>
+<arg>return arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${element}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:21:31.151658" elapsed="0.171385"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${HOTEL_CARD}</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-20T20:21:31.323254" elapsed="1.912376"/>
+</kw>
+<arg>${CITY}</arg>
+<status status="PASS" start="2025-11-20T20:21:24.987224" elapsed="8.249507"/>
+</kw>
+<kw name="Filter By 5 Star" owner="keywords">
+<kw name="Remove Overlay Elements" owner="keywords">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:21:33.239765" level="INFO">Executing JavaScript:
+try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}
+Without any arguments.</msg>
+<arg>try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:21:33.238634" elapsed="0.154244"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-20T20:21:33.895559" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-20T20:21:33.393360" elapsed="0.502330"/>
+</kw>
+<status status="PASS" start="2025-11-20T20:21:33.237925" elapsed="0.657863"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${STAR_FILTER_5}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-20T20:21:33.895939" elapsed="0.562504"/>
+</kw>
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:21:34.586086" level="INFO">${element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="2663237b588d3421fbe44e5d5beff4896a9e6537", element="node-5E812223-FAB0-4E21-907A-D56BAACBD71D")&gt;</msg>
+<var>${element}</var>
+<arg>${STAR_FILTER_5}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2025-11-20T20:21:34.458923" elapsed="0.127243"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:21:34.587009" level="INFO">Executing JavaScript:
+arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});
+By using argument:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="2663237b588d3421fbe44e5d5beff4896a9e6537", element="node-5E812223-FAB0-4E21-907A-D56BAACBD71D")&gt;'</msg>
+<arg>arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});</arg>
+<arg>ARGUMENTS</arg>
+<arg>${element}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:21:34.586410" elapsed="0.127167"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-20T20:21:35.714705" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-20T20:21:34.714041" elapsed="1.000981"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${STAR_FILTER_5}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-11-20T20:21:35.715520" elapsed="0.409134"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:21:36.126350" level="INFO">Executing JavaScript:
+return arguments[0].click();
+By using argument:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="2663237b588d3421fbe44e5d5beff4896a9e6537", element="node-5E812223-FAB0-4E21-907A-D56BAACBD71D")&gt;'</msg>
+<arg>return arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${element}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:21:36.125131" elapsed="0.130981"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${HOTEL_CARD}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-20T20:21:36.256319" elapsed="0.142918"/>
+</kw>
+<status status="PASS" start="2025-11-20T20:21:33.237479" elapsed="3.161972"/>
+</kw>
+<arg>safari</arg>
+<arg>OS X</arg>
+<arg>Sonoma</arg>
+<tag>chrome</tag>
+<status status="PASS" start="2025-11-20T20:21:17.731654" elapsed="18.667896"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-11-20T20:21:36.400416" elapsed="1.393529"/>
+</kw>
+<status status="PASS" start="2025-11-20T20:20:16.584624" elapsed="81.209569"/>
+</test>
+<test id="s1-t3" name="TS3 Verify Search Results Contain Destination" line="24">
+<kw name="Verify Search Results Template">
+<kw name="Open BrowserStack Browser" owner="keywords">
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-11-20T20:21:37.798015" level="INFO">${browser_class} = ChromeOptions</msg>
+<var>${browser_class}</var>
+<arg>'${browser.lower()}' == 'chrome'</arg>
+<arg>ChromeOptions</arg>
+<arg>'${browser.lower()}' == 'firefox'</arg>
+<arg>FirefoxOptions</arg>
+<arg>'${browser.lower()}' == 'safari'</arg>
+<arg>SafariOptions</arg>
+<arg>'${browser.lower()}' == 'edge'</arg>
+<arg>EdgeOptions</arg>
+<arg>ChromeOptions</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-11-20T20:21:37.796961" elapsed="0.001445"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-11-20T20:21:37.799188" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x103769f90&gt;</msg>
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].${browser_class}()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-11-20T20:21:37.798671" elapsed="0.000566"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>set_capability</arg>
+<arg>browserVersion</arg>
+<arg>latest</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-11-20T20:21:37.799425" elapsed="0.000202"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-11-20T20:21:37.800252" level="INFO">${bstack_options} = {'os': 'Windows', 'osVersion': '11', 'userName': 'tashimovnurkhan_5YcQMa', 'accessKey': '9cDNjxpyyqwz7VwZzC6g'}</msg>
+<var>${bstack_options}</var>
+<arg>{'os': '${os}', 'osVersion': '${os_version}', 'userName': '${BROWSERSTACK_USER}', 'accessKey': '${BROWSERSTACK_KEY}'}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-11-20T20:21:37.799786" elapsed="0.000509"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>set_capability</arg>
+<arg>bstack:options</arg>
+<arg>${bstack_options}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-11-20T20:21:37.800445" elapsed="0.000201"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:21:37.801298" level="INFO">Opening browser 'firefox' to base url 'https://www.booking.com/' through remote server at 'https://tashimovnurkhan_5YcQMa:9cDNjxpyyqwz7VwZzC6g@hub.browserstack.com/wd/hub'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>remote_url=https://${BROWSERSTACK_USER}:${BROWSERSTACK_KEY}@hub.browserstack.com/wd/hub</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-20T20:21:37.800840" elapsed="7.088756"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-11-20T20:21:44.891468" elapsed="4.653015"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${DESTINATION_INPUT}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-20T20:21:49.545044" elapsed="0.459271"/>
+</kw>
+<arg>${browser}</arg>
+<arg>${os}</arg>
+<arg>${os_version}</arg>
+<status status="PASS" start="2025-11-20T20:21:37.796409" elapsed="12.208246"/>
+</kw>
+<kw name="Search Hotel" owner="keywords">
+<kw name="Remove Overlay Elements" owner="keywords">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:21:50.008399" level="INFO">Executing JavaScript:
+try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}
+Without any arguments.</msg>
+<arg>try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:21:50.006962" elapsed="0.169048"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-20T20:21:50.678644" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-20T20:21:50.176497" elapsed="0.502429"/>
+</kw>
+<status status="PASS" start="2025-11-20T20:21:50.006333" elapsed="0.672862"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${DESTINATION_INPUT}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-20T20:21:50.679595" elapsed="0.365344"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${DESTINATION_INPUT}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-20T20:21:51.045426" elapsed="0.389026"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:21:51.435773" level="INFO">Typing text 'Almaty' into text field 'xpath=//input[@name='ss']'.</msg>
+<arg>${DESTINATION_INPUT}</arg>
+<arg>${city}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-20T20:21:51.434966" elapsed="0.665937"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-20T20:21:53.102916" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-20T20:21:52.101379" elapsed="1.001822"/>
+</kw>
+<kw name="Remove Overlay Elements" owner="keywords">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:21:53.104844" level="INFO">Executing JavaScript:
+try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}
+Without any arguments.</msg>
+<arg>try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:21:53.104145" elapsed="0.204628"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-20T20:21:53.809729" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-20T20:21:53.309106" elapsed="0.500761"/>
+</kw>
+<status status="PASS" start="2025-11-20T20:21:53.103702" elapsed="0.706335"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${SEARCH_BUTTON}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-20T20:21:53.810263" elapsed="0.355458"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${SEARCH_BUTTON}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-11-20T20:21:54.166006" elapsed="0.402954"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${SEARCH_BUTTON}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-11-20T20:21:54.569247" elapsed="0.545679"/>
+</kw>
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:21:55.585909" level="INFO">${element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="ab55a3b2f3c03094d6575734dc65d1e91eb8ac57", element="f.E3C303A8428E69FBAADC71DF852FD4E3.d.617A47B5B953125A3EE02131CC81A669.e.201")&gt;</msg>
+<var>${element}</var>
+<arg>${SEARCH_BUTTON}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2025-11-20T20:21:55.115395" elapsed="0.471335"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:21:55.587583" level="INFO">Executing JavaScript:
+return arguments[0].click();
+By using argument:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="ab55a3b2f3c03094d6575734dc65d1e91eb8ac57", element="f.E3C303A8428E69FBAADC71DF852FD4E3.d.617A47B5B953125A3EE02131CC81A669.e.201")&gt;'</msg>
+<arg>return arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${element}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:21:55.587071" elapsed="4.664774"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${HOTEL_CARD}</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-20T20:22:00.252385" elapsed="0.202473"/>
+</kw>
+<arg>${CITY}</arg>
+<status status="PASS" start="2025-11-20T20:21:50.005383" elapsed="10.449780"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${SEARCH_RESULTS}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-20T20:22:00.455574" elapsed="0.175348"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:22:02.467956" level="INFO">${page_text} = EUR
+List your property
+Register
+Sign in
+Stays
+Flights
+Flight + Hotel
+Car rental
+Attractions
+Airport taxis
+Check-in date
+—
+Check-out date
+Calendar
+I'm flexible
+November 2025
+Mo
+Tu
+We
+Th
+Fr
+Sa
+Su
+1
+2
+3
+...</msg>
+<var>${page_text}</var>
+<arg>xpath=//body</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-20T20:22:00.631467" elapsed="1.836545"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${page_text}</arg>
+<arg>${DESTINATION}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-11-20T20:22:02.468577" elapsed="0.000565"/>
+</kw>
+<arg>chrome</arg>
+<arg>Windows</arg>
+<arg>11</arg>
+<tag>chrome</tag>
+<status status="PASS" start="2025-11-20T20:21:37.795829" elapsed="24.673381"/>
+</kw>
+<kw name="Verify Search Results Template">
+<kw name="Open BrowserStack Browser" owner="keywords">
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-11-20T20:22:02.471464" level="INFO">${browser_class} = FirefoxOptions</msg>
+<var>${browser_class}</var>
+<arg>'${browser.lower()}' == 'chrome'</arg>
+<arg>ChromeOptions</arg>
+<arg>'${browser.lower()}' == 'firefox'</arg>
+<arg>FirefoxOptions</arg>
+<arg>'${browser.lower()}' == 'safari'</arg>
+<arg>SafariOptions</arg>
+<arg>'${browser.lower()}' == 'edge'</arg>
+<arg>EdgeOptions</arg>
+<arg>ChromeOptions</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-11-20T20:22:02.470545" elapsed="0.000944"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-11-20T20:22:02.471802" level="INFO">${options} = &lt;selenium.webdriver.firefox.options.Options object at 0x1038851d0&gt;</msg>
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].${browser_class}()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-11-20T20:22:02.471597" elapsed="0.000227"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>set_capability</arg>
+<arg>browserVersion</arg>
+<arg>latest</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-11-20T20:22:02.471904" elapsed="0.000091"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-11-20T20:22:02.472287" level="INFO">${bstack_options} = {'os': 'Windows', 'osVersion': '11', 'userName': 'tashimovnurkhan_5YcQMa', 'accessKey': '9cDNjxpyyqwz7VwZzC6g'}</msg>
+<var>${bstack_options}</var>
+<arg>{'os': '${os}', 'osVersion': '${os_version}', 'userName': '${BROWSERSTACK_USER}', 'accessKey': '${BROWSERSTACK_KEY}'}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-11-20T20:22:02.472073" elapsed="0.000236"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>set_capability</arg>
+<arg>bstack:options</arg>
+<arg>${bstack_options}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-11-20T20:22:02.472384" elapsed="0.000104"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:22:02.472835" level="INFO">Opening browser 'firefox' to base url 'https://www.booking.com/' through remote server at 'https://tashimovnurkhan_5YcQMa:9cDNjxpyyqwz7VwZzC6g@hub.browserstack.com/wd/hub'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>remote_url=https://${BROWSERSTACK_USER}:${BROWSERSTACK_KEY}@hub.browserstack.com/wd/hub</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-20T20:22:02.472597" elapsed="14.003513"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-11-20T20:22:16.477277" elapsed="0.507386"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${DESTINATION_INPUT}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-20T20:22:16.984994" elapsed="1.754806"/>
+</kw>
+<arg>${browser}</arg>
+<arg>${os}</arg>
+<arg>${os_version}</arg>
+<status status="PASS" start="2025-11-20T20:22:02.469806" elapsed="16.270349"/>
+</kw>
+<kw name="Search Hotel" owner="keywords">
+<kw name="Remove Overlay Elements" owner="keywords">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:22:18.743179" level="INFO">Executing JavaScript:
+try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}
+Without any arguments.</msg>
+<arg>try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:22:18.742328" elapsed="1.195111"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-20T20:22:20.439974" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-20T20:22:19.937705" elapsed="0.502838"/>
+</kw>
+<status status="PASS" start="2025-11-20T20:22:18.741959" elapsed="1.699036"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${DESTINATION_INPUT}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-20T20:22:20.441324" elapsed="1.738429"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${DESTINATION_INPUT}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-20T20:22:22.180233" elapsed="0.421125"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:22:22.602448" level="INFO">Typing text 'Almaty' into text field 'xpath=//input[@name='ss']'.</msg>
+<arg>${DESTINATION_INPUT}</arg>
+<arg>${city}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-20T20:22:22.601590" elapsed="0.581554"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-20T20:22:24.185552" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-20T20:22:23.183662" elapsed="1.002181"/>
+</kw>
+<kw name="Remove Overlay Elements" owner="keywords">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:22:24.187998" level="INFO">Executing JavaScript:
+try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}
+Without any arguments.</msg>
+<arg>try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:22:24.187103" elapsed="0.149475"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-20T20:22:24.838761" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-20T20:22:24.336768" elapsed="0.502261"/>
+</kw>
+<status status="PASS" start="2025-11-20T20:22:24.186403" elapsed="0.652899"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${SEARCH_BUTTON}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-20T20:22:24.839664" elapsed="0.262617"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${SEARCH_BUTTON}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-11-20T20:22:25.102605" elapsed="0.686295"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${SEARCH_BUTTON}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-11-20T20:22:25.789452" elapsed="0.533046"/>
+</kw>
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:22:26.767061" level="INFO">${element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="e337678e79ea2033f18a1ea3824ea854cb77bf95", element="3975687a-d70c-476c-9198-fd7570f82806")&gt;</msg>
+<var>${element}</var>
+<arg>${SEARCH_BUTTON}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2025-11-20T20:22:26.323009" elapsed="0.444196"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:22:26.768842" level="INFO">Executing JavaScript:
+return arguments[0].click();
+By using argument:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="e337678e79ea2033f18a1ea3824ea854cb77bf95", element="3975687a-d70c-476c-9198-fd7570f82806")&gt;'</msg>
+<arg>return arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${element}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:22:26.767669" elapsed="0.160249"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${HOTEL_CARD}</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-20T20:22:26.928134" elapsed="1.841567"/>
+</kw>
+<arg>${CITY}</arg>
+<status status="PASS" start="2025-11-20T20:22:18.741260" elapsed="10.028628"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${SEARCH_RESULTS}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-20T20:22:28.770053" elapsed="1.364068"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:22:34.453605" level="INFO">${page_text} = EUR
+List your property
+Register
+Sign in
+Stays
+Flights
+Flight + Hotel
+Car rental
+Attractions
+Airport taxis
+Check-in date
+—
+Check-out date
+Calendar
+I'm flexible
+November 2025
+Mo
+Tu
+We
+Th
+Fr
+Sa
+Su
+1
+2
+3
+...</msg>
+<var>${page_text}</var>
+<arg>xpath=//body</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-20T20:22:30.134326" elapsed="4.319344"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${page_text}</arg>
+<arg>${DESTINATION}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-11-20T20:22:34.453807" elapsed="0.000431"/>
+</kw>
+<arg>firefox</arg>
+<arg>Windows</arg>
+<arg>11</arg>
+<tag>chrome</tag>
+<status status="PASS" start="2025-11-20T20:22:02.469530" elapsed="31.984872"/>
+</kw>
+<kw name="Verify Search Results Template">
+<kw name="Open BrowserStack Browser" owner="keywords">
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-11-20T20:22:34.456363" level="INFO">${browser_class} = SafariOptions</msg>
+<var>${browser_class}</var>
+<arg>'${browser.lower()}' == 'chrome'</arg>
+<arg>ChromeOptions</arg>
+<arg>'${browser.lower()}' == 'firefox'</arg>
+<arg>FirefoxOptions</arg>
+<arg>'${browser.lower()}' == 'safari'</arg>
+<arg>SafariOptions</arg>
+<arg>'${browser.lower()}' == 'edge'</arg>
+<arg>EdgeOptions</arg>
+<arg>ChromeOptions</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-11-20T20:22:34.455404" elapsed="0.000978"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-11-20T20:22:34.456646" level="INFO">${options} = &lt;selenium.webdriver.safari.options.Options object at 0x103769f90&gt;</msg>
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].${browser_class}()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-11-20T20:22:34.456465" elapsed="0.000193"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>set_capability</arg>
+<arg>browserVersion</arg>
+<arg>latest</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-11-20T20:22:34.456705" elapsed="0.000077"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-11-20T20:22:34.457256" level="INFO">${bstack_options} = {'os': 'OS X', 'osVersion': 'Sonoma', 'userName': 'tashimovnurkhan_5YcQMa', 'accessKey': '9cDNjxpyyqwz7VwZzC6g'}</msg>
+<var>${bstack_options}</var>
+<arg>{'os': '${os}', 'osVersion': '${os_version}', 'userName': '${BROWSERSTACK_USER}', 'accessKey': '${BROWSERSTACK_KEY}'}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-11-20T20:22:34.456867" elapsed="0.000406"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>set_capability</arg>
+<arg>bstack:options</arg>
+<arg>${bstack_options}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-11-20T20:22:34.457322" elapsed="0.000079"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:22:34.457663" level="INFO">Opening browser 'firefox' to base url 'https://www.booking.com/' through remote server at 'https://tashimovnurkhan_5YcQMa:9cDNjxpyyqwz7VwZzC6g@hub.browserstack.com/wd/hub'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>remote_url=https://${BROWSERSTACK_USER}:${BROWSERSTACK_KEY}@hub.browserstack.com/wd/hub</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-20T20:22:34.457486" elapsed="4.628911"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-11-20T20:22:39.087195" elapsed="0.142802"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${DESTINATION_INPUT}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-20T20:22:39.230439" elapsed="1.593582"/>
+</kw>
+<arg>${browser}</arg>
+<arg>${os}</arg>
+<arg>${os_version}</arg>
+<status status="PASS" start="2025-11-20T20:22:34.455232" elapsed="6.369272"/>
+</kw>
+<kw name="Search Hotel" owner="keywords">
+<kw name="Remove Overlay Elements" owner="keywords">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:22:40.828985" level="INFO">Executing JavaScript:
+try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}
+Without any arguments.</msg>
+<arg>try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:22:40.827620" elapsed="0.140155"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-20T20:22:41.469452" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-20T20:22:40.968043" elapsed="0.501652"/>
+</kw>
+<status status="PASS" start="2025-11-20T20:22:40.826895" elapsed="0.642947"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${DESTINATION_INPUT}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-20T20:22:41.470052" elapsed="0.270845"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${DESTINATION_INPUT}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-20T20:22:41.741413" elapsed="0.260572"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:22:42.003576" level="INFO">Typing text 'Almaty' into text field 'xpath=//input[@name='ss']'.</msg>
+<arg>${DESTINATION_INPUT}</arg>
+<arg>${city}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-20T20:22:42.002462" elapsed="0.445102"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-20T20:22:43.450067" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-20T20:22:42.447881" elapsed="1.002449"/>
+</kw>
+<kw name="Remove Overlay Elements" owner="keywords">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:22:43.451623" level="INFO">Executing JavaScript:
+try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}
+Without any arguments.</msg>
+<arg>try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:22:43.451156" elapsed="0.124405"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-20T20:22:44.078093" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-20T20:22:43.575833" elapsed="0.502547"/>
+</kw>
+<status status="PASS" start="2025-11-20T20:22:43.450729" elapsed="0.627909"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${SEARCH_BUTTON}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-20T20:22:44.079136" elapsed="0.246587"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${SEARCH_BUTTON}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-11-20T20:22:44.325938" elapsed="0.365538"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${SEARCH_BUTTON}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-11-20T20:22:44.692060" elapsed="0.508819"/>
+</kw>
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:22:45.329910" level="INFO">${element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="53837e6560a53768cc78b33da1d6e06865d623f0", element="node-B79B4F96-EFBF-4823-9DB2-E23B6911AE9E")&gt;</msg>
+<var>${element}</var>
+<arg>${SEARCH_BUTTON}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2025-11-20T20:22:45.201093" elapsed="0.128900"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:22:45.330975" level="INFO">Executing JavaScript:
+return arguments[0].click();
+By using argument:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="53837e6560a53768cc78b33da1d6e06865d623f0", element="node-B79B4F96-EFBF-4823-9DB2-E23B6911AE9E")&gt;'</msg>
+<arg>return arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${element}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:22:45.330250" elapsed="0.152038"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${HOTEL_CARD}</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-20T20:22:45.482815" elapsed="1.388366"/>
+</kw>
+<arg>${CITY}</arg>
+<status status="PASS" start="2025-11-20T20:22:40.825607" elapsed="6.045770"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${SEARCH_RESULTS}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-20T20:22:46.871623" elapsed="0.626125"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:23:06.457292" level="INFO">${page_text} = 
+    Skip to main contentEURList your propertyRegisterSign inStaysFlightsFlight + HotelCar rentalAttractionsAirport taxisMoreCheck-in date — Check-out dateCalendarI'm flexibleNovember 2025MoTuWeThFrSa...</msg>
+<var>${page_text}</var>
+<arg>xpath=//body</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-20T20:22:47.498271" elapsed="18.959505"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${page_text}</arg>
+<arg>${DESTINATION}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-11-20T20:23:06.458502" elapsed="0.000529"/>
+</kw>
+<arg>safari</arg>
+<arg>OS X</arg>
+<arg>Sonoma</arg>
+<tag>chrome</tag>
+<status status="PASS" start="2025-11-20T20:22:34.455048" elapsed="32.004185"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-11-20T20:23:06.460271" elapsed="1.573866"/>
+</kw>
+<doc>Verify that search results contain the destination name</doc>
+<status status="PASS" start="2025-11-20T20:21:37.794771" elapsed="90.239579"/>
+</test>
+<test id="s1-t4" name="TS4 Change Website Language" line="31">
+<kw name="Change Language Template">
+<kw name="Open BrowserStack Browser" owner="keywords">
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-11-20T20:23:08.038466" level="INFO">${browser_class} = ChromeOptions</msg>
+<var>${browser_class}</var>
+<arg>'${browser.lower()}' == 'chrome'</arg>
+<arg>ChromeOptions</arg>
+<arg>'${browser.lower()}' == 'firefox'</arg>
+<arg>FirefoxOptions</arg>
+<arg>'${browser.lower()}' == 'safari'</arg>
+<arg>SafariOptions</arg>
+<arg>'${browser.lower()}' == 'edge'</arg>
+<arg>EdgeOptions</arg>
+<arg>ChromeOptions</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-11-20T20:23:08.037104" elapsed="0.001429"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-11-20T20:23:08.039409" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x103829f30&gt;</msg>
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].${browser_class}()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-11-20T20:23:08.038820" elapsed="0.000642"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>set_capability</arg>
+<arg>browserVersion</arg>
+<arg>latest</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-11-20T20:23:08.039681" elapsed="0.000227"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-11-20T20:23:08.040546" level="INFO">${bstack_options} = {'os': 'Windows', 'osVersion': '11', 'userName': 'tashimovnurkhan_5YcQMa', 'accessKey': '9cDNjxpyyqwz7VwZzC6g'}</msg>
+<var>${bstack_options}</var>
+<arg>{'os': '${os}', 'osVersion': '${os_version}', 'userName': '${BROWSERSTACK_USER}', 'accessKey': '${BROWSERSTACK_KEY}'}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-11-20T20:23:08.040068" elapsed="0.000526"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>set_capability</arg>
+<arg>bstack:options</arg>
+<arg>${bstack_options}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-11-20T20:23:08.040733" elapsed="0.000322"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:23:08.041748" level="INFO">Opening browser 'firefox' to base url 'https://www.booking.com/' through remote server at 'https://tashimovnurkhan_5YcQMa:9cDNjxpyyqwz7VwZzC6g@hub.browserstack.com/wd/hub'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>remote_url=https://${BROWSERSTACK_USER}:${BROWSERSTACK_KEY}@hub.browserstack.com/wd/hub</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-20T20:23:08.041271" elapsed="6.618314"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-11-20T20:23:14.659988" elapsed="6.042053"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${DESTINATION_INPUT}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-20T20:23:20.702326" elapsed="0.274309"/>
+</kw>
+<arg>${browser}</arg>
+<arg>${os}</arg>
+<arg>${os_version}</arg>
+<status status="PASS" start="2025-11-20T20:23:08.036511" elapsed="12.940319"/>
+</kw>
+<kw name="Change Language" owner="keywords">
+<kw name="Remove Overlay Elements" owner="keywords">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:23:20.978458" level="INFO">Executing JavaScript:
+try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}
+Without any arguments.</msg>
+<arg>try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:23:20.977753" elapsed="0.180070"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-20T20:23:21.659607" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-20T20:23:21.158113" elapsed="0.501668"/>
+</kw>
+<status status="PASS" start="2025-11-20T20:23:20.977457" elapsed="0.682479"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LANGUAGE_BUTTON}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-20T20:23:21.660141" elapsed="0.387774"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${LANGUAGE_BUTTON}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-11-20T20:23:22.048337" elapsed="0.637421"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${LANGUAGE_BUTTON}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-11-20T20:23:22.686078" elapsed="0.467389"/>
+</kw>
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:23:23.347764" level="INFO">${element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="3f14695ea8de697881675db548c35f04ef83e3c2", element="f.17893D85223B83EB89D84477ED269746.d.0786F1178BC6C04CBBCB9281C30EF370.e.225")&gt;</msg>
+<var>${element}</var>
+<arg>${LANGUAGE_BUTTON}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2025-11-20T20:23:23.153766" elapsed="0.194106"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:23:23.349383" level="INFO">Executing JavaScript:
+return arguments[0].click();
+By using argument:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="3f14695ea8de697881675db548c35f04ef83e3c2", element="f.17893D85223B83EB89D84477ED269746.d.0786F1178BC6C04CBBCB9281C30EF370.e.225")&gt;'</msg>
+<arg>return arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${element}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:23:23.348238" elapsed="1.055158"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-20T20:23:26.404899" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-20T20:23:24.403687" elapsed="2.001542"/>
+</kw>
+<status status="PASS" start="2025-11-20T20:23:20.977094" elapsed="5.428305"/>
+</kw>
+<arg>chrome</arg>
+<arg>Windows</arg>
+<arg>11</arg>
+<tag>chrome</tag>
+<status status="PASS" start="2025-11-20T20:23:08.035853" elapsed="18.369642"/>
+</kw>
+<kw name="Change Language Template">
+<kw name="Open BrowserStack Browser" owner="keywords">
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-11-20T20:23:26.409752" level="INFO">${browser_class} = FirefoxOptions</msg>
+<var>${browser_class}</var>
+<arg>'${browser.lower()}' == 'chrome'</arg>
+<arg>ChromeOptions</arg>
+<arg>'${browser.lower()}' == 'firefox'</arg>
+<arg>FirefoxOptions</arg>
+<arg>'${browser.lower()}' == 'safari'</arg>
+<arg>SafariOptions</arg>
+<arg>'${browser.lower()}' == 'edge'</arg>
+<arg>EdgeOptions</arg>
+<arg>ChromeOptions</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-11-20T20:23:26.407552" elapsed="0.002271"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-11-20T20:23:26.411232" level="INFO">${options} = &lt;selenium.webdriver.firefox.options.Options object at 0x10382a3f0&gt;</msg>
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].${browser_class}()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-11-20T20:23:26.410677" elapsed="0.000602"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>set_capability</arg>
+<arg>browserVersion</arg>
+<arg>latest</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-11-20T20:23:26.411447" elapsed="0.000178"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-11-20T20:23:26.412177" level="INFO">${bstack_options} = {'os': 'Windows', 'osVersion': '11', 'userName': 'tashimovnurkhan_5YcQMa', 'accessKey': '9cDNjxpyyqwz7VwZzC6g'}</msg>
+<var>${bstack_options}</var>
+<arg>{'os': '${os}', 'osVersion': '${os_version}', 'userName': '${BROWSERSTACK_USER}', 'accessKey': '${BROWSERSTACK_KEY}'}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-11-20T20:23:26.411776" elapsed="0.000442"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>set_capability</arg>
+<arg>bstack:options</arg>
+<arg>${bstack_options}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-11-20T20:23:26.412360" elapsed="0.002001"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:23:26.415161" level="INFO">Opening browser 'firefox' to base url 'https://www.booking.com/' through remote server at 'https://tashimovnurkhan_5YcQMa:9cDNjxpyyqwz7VwZzC6g@hub.browserstack.com/wd/hub'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>remote_url=https://${BROWSERSTACK_USER}:${BROWSERSTACK_KEY}@hub.browserstack.com/wd/hub</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-20T20:23:26.414645" elapsed="16.548425"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-11-20T20:23:42.964506" elapsed="0.535183"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${DESTINATION_INPUT}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-20T20:23:43.499944" elapsed="2.278370"/>
+</kw>
+<arg>${browser}</arg>
+<arg>${os}</arg>
+<arg>${os_version}</arg>
+<status status="PASS" start="2025-11-20T20:23:26.406783" elapsed="19.371771"/>
+</kw>
+<kw name="Change Language" owner="keywords">
+<kw name="Remove Overlay Elements" owner="keywords">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:23:45.781616" level="INFO">Executing JavaScript:
+try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}
+Without any arguments.</msg>
+<arg>try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:23:45.779884" elapsed="0.313735"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-20T20:23:46.595295" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-20T20:23:46.094248" elapsed="0.501250"/>
+</kw>
+<status status="PASS" start="2025-11-20T20:23:45.779500" elapsed="0.816169"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LANGUAGE_BUTTON}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-20T20:23:46.595920" elapsed="0.903835"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${LANGUAGE_BUTTON}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-11-20T20:23:47.500096" elapsed="1.066705"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${LANGUAGE_BUTTON}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-11-20T20:23:48.567100" elapsed="1.226823"/>
+</kw>
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:23:50.020696" level="INFO">${element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="1d565ab005d8e04b16cfa4501d6ec2894487104b", element="5572c310-27ee-469e-a592-596204079fa3")&gt;</msg>
+<var>${element}</var>
+<arg>${LANGUAGE_BUTTON}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2025-11-20T20:23:49.794181" elapsed="0.226614"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:23:50.021707" level="INFO">Executing JavaScript:
+return arguments[0].click();
+By using argument:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="1d565ab005d8e04b16cfa4501d6ec2894487104b", element="5572c310-27ee-469e-a592-596204079fa3")&gt;'</msg>
+<arg>return arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${element}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:23:50.021136" elapsed="0.375157"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-20T20:23:52.397283" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-20T20:23:50.396696" elapsed="2.000873"/>
+</kw>
+<status status="PASS" start="2025-11-20T20:23:45.778978" elapsed="6.618865"/>
+</kw>
+<arg>firefox</arg>
+<arg>Windows</arg>
+<arg>11</arg>
+<tag>chrome</tag>
+<status status="PASS" start="2025-11-20T20:23:26.406000" elapsed="25.992038"/>
+</kw>
+<kw name="Change Language Template">
+<kw name="Open BrowserStack Browser" owner="keywords">
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-11-20T20:23:52.405805" level="INFO">${browser_class} = SafariOptions</msg>
+<var>${browser_class}</var>
+<arg>'${browser.lower()}' == 'chrome'</arg>
+<arg>ChromeOptions</arg>
+<arg>'${browser.lower()}' == 'firefox'</arg>
+<arg>FirefoxOptions</arg>
+<arg>'${browser.lower()}' == 'safari'</arg>
+<arg>SafariOptions</arg>
+<arg>'${browser.lower()}' == 'edge'</arg>
+<arg>EdgeOptions</arg>
+<arg>ChromeOptions</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-11-20T20:23:52.401356" elapsed="0.004540"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-11-20T20:23:52.407172" level="INFO">${options} = &lt;selenium.webdriver.safari.options.Options object at 0x10382a8b0&gt;</msg>
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].${browser_class}()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-11-20T20:23:52.406329" elapsed="0.000946"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>set_capability</arg>
+<arg>browserVersion</arg>
+<arg>latest</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-11-20T20:23:52.408224" elapsed="0.000407"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-11-20T20:23:52.409717" level="INFO">${bstack_options} = {'os': 'OS X', 'osVersion': 'Sonoma', 'userName': 'tashimovnurkhan_5YcQMa', 'accessKey': '9cDNjxpyyqwz7VwZzC6g'}</msg>
+<var>${bstack_options}</var>
+<arg>{'os': '${os}', 'osVersion': '${os_version}', 'userName': '${BROWSERSTACK_USER}', 'accessKey': '${BROWSERSTACK_KEY}'}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-11-20T20:23:52.408923" elapsed="0.000876"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>set_capability</arg>
+<arg>bstack:options</arg>
+<arg>${bstack_options}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-11-20T20:23:52.410050" elapsed="0.000320"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:23:52.411287" level="INFO">Opening browser 'firefox' to base url 'https://www.booking.com/' through remote server at 'https://tashimovnurkhan_5YcQMa:9cDNjxpyyqwz7VwZzC6g@hub.browserstack.com/wd/hub'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>remote_url=https://${BROWSERSTACK_USER}:${BROWSERSTACK_KEY}@hub.browserstack.com/wd/hub</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-20T20:23:52.410656" elapsed="6.815896"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-11-20T20:23:59.227076" elapsed="0.143707"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${DESTINATION_INPUT}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-20T20:23:59.371252" elapsed="0.742262"/>
+</kw>
+<arg>${browser}</arg>
+<arg>${os}</arg>
+<arg>${os_version}</arg>
+<status status="PASS" start="2025-11-20T20:23:52.400205" elapsed="7.713639"/>
+</kw>
+<kw name="Change Language" owner="keywords">
+<kw name="Remove Overlay Elements" owner="keywords">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:24:00.116115" level="INFO">Executing JavaScript:
+try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}
+Without any arguments.</msg>
+<arg>try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:24:00.115214" elapsed="0.415560"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-20T20:24:01.032777" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-20T20:24:00.531231" elapsed="0.501839"/>
+</kw>
+<status status="PASS" start="2025-11-20T20:24:00.114785" elapsed="0.918561"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LANGUAGE_BUTTON}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-20T20:24:01.033733" elapsed="0.361519"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${LANGUAGE_BUTTON}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-11-20T20:24:01.395775" elapsed="0.531396"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${LANGUAGE_BUTTON}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-11-20T20:24:01.927460" elapsed="0.415310"/>
+</kw>
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:24:02.562146" level="INFO">${element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="0d51bc45d820ce015449203e39f5debbdb2ab50a", element="node-94DCAF0C-38C2-4FFC-9808-53D04A2E776D")&gt;</msg>
+<var>${element}</var>
+<arg>${LANGUAGE_BUTTON}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2025-11-20T20:24:02.343012" elapsed="0.219210"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:24:02.563293" level="INFO">Executing JavaScript:
+return arguments[0].click();
+By using argument:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="0d51bc45d820ce015449203e39f5debbdb2ab50a", element="node-94DCAF0C-38C2-4FFC-9808-53D04A2E776D")&gt;'</msg>
+<arg>return arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${element}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:24:02.562490" elapsed="0.151066"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-20T20:24:04.716623" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-20T20:24:02.714020" elapsed="2.002880"/>
+</kw>
+<status status="PASS" start="2025-11-20T20:24:00.114374" elapsed="4.602822"/>
+</kw>
+<arg>safari</arg>
+<arg>OS X</arg>
+<arg>Sonoma</arg>
+<tag>chrome</tag>
+<status status="PASS" start="2025-11-20T20:23:52.399172" elapsed="12.318220"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-11-20T20:24:04.718329" elapsed="1.279335"/>
+</kw>
+<status status="PASS" start="2025-11-20T20:23:08.034836" elapsed="57.963157"/>
+</test>
+<test id="s1-t5" name="TS5 Change Currency" line="37">
+<kw name="Change Currency Template">
+<kw name="Open BrowserStack Browser" owner="keywords">
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-11-20T20:24:06.003253" level="INFO">${browser_class} = ChromeOptions</msg>
+<var>${browser_class}</var>
+<arg>'${browser.lower()}' == 'chrome'</arg>
+<arg>ChromeOptions</arg>
+<arg>'${browser.lower()}' == 'firefox'</arg>
+<arg>FirefoxOptions</arg>
+<arg>'${browser.lower()}' == 'safari'</arg>
+<arg>SafariOptions</arg>
+<arg>'${browser.lower()}' == 'edge'</arg>
+<arg>EdgeOptions</arg>
+<arg>ChromeOptions</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-11-20T20:24:06.001815" elapsed="0.001502"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-11-20T20:24:06.004051" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x103829cd0&gt;</msg>
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].${browser_class}()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-11-20T20:24:06.003591" elapsed="0.000516"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>set_capability</arg>
+<arg>browserVersion</arg>
+<arg>latest</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-11-20T20:24:06.004327" elapsed="0.000267"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-11-20T20:24:06.005383" level="INFO">${bstack_options} = {'os': 'Windows', 'osVersion': '11', 'userName': 'tashimovnurkhan_5YcQMa', 'accessKey': '9cDNjxpyyqwz7VwZzC6g'}</msg>
+<var>${bstack_options}</var>
+<arg>{'os': '${os}', 'osVersion': '${os_version}', 'userName': '${BROWSERSTACK_USER}', 'accessKey': '${BROWSERSTACK_KEY}'}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-11-20T20:24:06.004809" elapsed="0.001274"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>set_capability</arg>
+<arg>bstack:options</arg>
+<arg>${bstack_options}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-11-20T20:24:06.006371" elapsed="0.000310"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:24:06.007360" level="INFO">Opening browser 'firefox' to base url 'https://www.booking.com/' through remote server at 'https://tashimovnurkhan_5YcQMa:9cDNjxpyyqwz7VwZzC6g@hub.browserstack.com/wd/hub'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>remote_url=https://${BROWSERSTACK_USER}:${BROWSERSTACK_KEY}@hub.browserstack.com/wd/hub</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-20T20:24:06.006894" elapsed="7.611713"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-11-20T20:24:13.619108" elapsed="5.377268"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${DESTINATION_INPUT}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-20T20:24:18.996855" elapsed="0.374337"/>
+</kw>
+<arg>${browser}</arg>
+<arg>${os}</arg>
+<arg>${os_version}</arg>
+<status status="PASS" start="2025-11-20T20:24:06.000885" elapsed="13.370497"/>
+</kw>
+<kw name="Change Currency" owner="keywords">
+<kw name="Remove Overlay Elements" owner="keywords">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:24:19.372965" level="INFO">Executing JavaScript:
+try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}
+Without any arguments.</msg>
+<arg>try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:24:19.372415" elapsed="0.172428"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-20T20:24:20.048260" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-20T20:24:19.545334" elapsed="0.503217"/>
+</kw>
+<status status="PASS" start="2025-11-20T20:24:19.372111" elapsed="0.676700"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CURRENCY_BUTTON}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-20T20:24:20.049193" elapsed="0.350503"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${CURRENCY_BUTTON}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-11-20T20:24:20.400082" elapsed="0.680837"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${CURRENCY_BUTTON}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-11-20T20:24:21.081145" elapsed="0.444525"/>
+</kw>
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:24:21.671473" level="INFO">${element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="9b67deecbf7e0fa29b1aae40a9e75170bc4820ee", element="f.0C47138DBCB8BB1BED275D919E66B4C9.d.3975A8915F0E0DB12BA3357B26B20CDF.e.220")&gt;</msg>
+<var>${element}</var>
+<arg>${CURRENCY_BUTTON}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2025-11-20T20:24:21.525925" elapsed="0.145646"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:24:21.672253" level="INFO">Executing JavaScript:
+return arguments[0].click();
+By using argument:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="9b67deecbf7e0fa29b1aae40a9e75170bc4820ee", element="f.0C47138DBCB8BB1BED275D919E66B4C9.d.3975A8915F0E0DB12BA3357B26B20CDF.e.220")&gt;'</msg>
+<arg>return arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${element}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:24:21.671765" elapsed="0.232718"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-20T20:24:23.907702" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-20T20:24:21.904853" elapsed="2.003124"/>
+</kw>
+<status status="PASS" start="2025-11-20T20:24:19.371701" elapsed="4.536462"/>
+</kw>
+<arg>chrome</arg>
+<arg>Windows</arg>
+<arg>11</arg>
+<tag>chrome</tag>
+<status status="PASS" start="2025-11-20T20:24:05.999949" elapsed="17.908293"/>
+</kw>
+<kw name="Change Currency Template">
+<kw name="Open BrowserStack Browser" owner="keywords">
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-11-20T20:24:23.910495" level="INFO">${browser_class} = FirefoxOptions</msg>
+<var>${browser_class}</var>
+<arg>'${browser.lower()}' == 'chrome'</arg>
+<arg>ChromeOptions</arg>
+<arg>'${browser.lower()}' == 'firefox'</arg>
+<arg>FirefoxOptions</arg>
+<arg>'${browser.lower()}' == 'safari'</arg>
+<arg>SafariOptions</arg>
+<arg>'${browser.lower()}' == 'edge'</arg>
+<arg>EdgeOptions</arg>
+<arg>ChromeOptions</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-11-20T20:24:23.909509" elapsed="0.001019"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-11-20T20:24:23.910965" level="INFO">${options} = &lt;selenium.webdriver.firefox.options.Options object at 0x10382afd0&gt;</msg>
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].${browser_class}()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-11-20T20:24:23.910676" elapsed="0.000316"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>set_capability</arg>
+<arg>browserVersion</arg>
+<arg>latest</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-11-20T20:24:23.911092" elapsed="0.000178"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-11-20T20:24:23.911645" level="INFO">${bstack_options} = {'os': 'Windows', 'osVersion': '11', 'userName': 'tashimovnurkhan_5YcQMa', 'accessKey': '9cDNjxpyyqwz7VwZzC6g'}</msg>
+<var>${bstack_options}</var>
+<arg>{'os': '${os}', 'osVersion': '${os_version}', 'userName': '${BROWSERSTACK_USER}', 'accessKey': '${BROWSERSTACK_KEY}'}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-11-20T20:24:23.911377" elapsed="0.000294"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>set_capability</arg>
+<arg>bstack:options</arg>
+<arg>${bstack_options}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-11-20T20:24:23.911760" elapsed="0.000371"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:24:23.913349" level="INFO">Opening browser 'firefox' to base url 'https://www.booking.com/' through remote server at 'https://tashimovnurkhan_5YcQMa:9cDNjxpyyqwz7VwZzC6g@hub.browserstack.com/wd/hub'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>remote_url=https://${BROWSERSTACK_USER}:${BROWSERSTACK_KEY}@hub.browserstack.com/wd/hub</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-20T20:24:23.912534" elapsed="15.723610"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-11-20T20:24:39.637141" elapsed="0.498894"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${DESTINATION_INPUT}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-20T20:24:40.136459" elapsed="1.840073"/>
+</kw>
+<arg>${browser}</arg>
+<arg>${os}</arg>
+<arg>${os_version}</arg>
+<status status="PASS" start="2025-11-20T20:24:23.909163" elapsed="18.067842"/>
+</kw>
+<kw name="Change Currency" owner="keywords">
+<kw name="Remove Overlay Elements" owner="keywords">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:24:41.980892" level="INFO">Executing JavaScript:
+try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}
+Without any arguments.</msg>
+<arg>try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:24:41.980143" elapsed="1.086225"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-20T20:24:43.567680" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-20T20:24:43.066668" elapsed="0.501308"/>
+</kw>
+<status status="PASS" start="2025-11-20T20:24:41.978443" elapsed="1.589807"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CURRENCY_BUTTON}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-20T20:24:43.568649" elapsed="1.473216"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${CURRENCY_BUTTON}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-11-20T20:24:45.042121" elapsed="0.958340"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${CURRENCY_BUTTON}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-11-20T20:24:46.000781" elapsed="0.836736"/>
+</kw>
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:24:47.005339" level="INFO">${element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="2315af9ca9f0704d2d2ac358d9b0ed3263289190", element="571c19a7-e584-4a64-afbd-614a9f2c4d6b")&gt;</msg>
+<var>${element}</var>
+<arg>${CURRENCY_BUTTON}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2025-11-20T20:24:46.837870" elapsed="0.167576"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:24:47.006384" level="INFO">Executing JavaScript:
+return arguments[0].click();
+By using argument:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="2315af9ca9f0704d2d2ac358d9b0ed3263289190", element="571c19a7-e584-4a64-afbd-614a9f2c4d6b")&gt;'</msg>
+<arg>return arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${element}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:24:47.005731" elapsed="0.233138"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-20T20:24:49.240604" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-20T20:24:47.239215" elapsed="2.001568"/>
+</kw>
+<status status="PASS" start="2025-11-20T20:24:41.977818" elapsed="7.263139"/>
+</kw>
+<arg>firefox</arg>
+<arg>Windows</arg>
+<arg>11</arg>
+<tag>chrome</tag>
+<status status="PASS" start="2025-11-20T20:24:23.908699" elapsed="25.332392"/>
+</kw>
+<kw name="Change Currency Template">
+<kw name="Open BrowserStack Browser" owner="keywords">
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-11-20T20:24:49.247553" level="INFO">${browser_class} = SafariOptions</msg>
+<var>${browser_class}</var>
+<arg>'${browser.lower()}' == 'chrome'</arg>
+<arg>ChromeOptions</arg>
+<arg>'${browser.lower()}' == 'firefox'</arg>
+<arg>FirefoxOptions</arg>
+<arg>'${browser.lower()}' == 'safari'</arg>
+<arg>SafariOptions</arg>
+<arg>'${browser.lower()}' == 'edge'</arg>
+<arg>EdgeOptions</arg>
+<arg>ChromeOptions</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-11-20T20:24:49.244103" elapsed="0.003517"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-11-20T20:24:49.248922" level="INFO">${options} = &lt;selenium.webdriver.safari.options.Options object at 0x10382afd0&gt;</msg>
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].${browser_class}()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-11-20T20:24:49.247898" elapsed="0.001092"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>set_capability</arg>
+<arg>browserVersion</arg>
+<arg>latest</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-11-20T20:24:49.249216" elapsed="0.000449"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-11-20T20:24:49.251726" level="INFO">${bstack_options} = {'os': 'OS X', 'osVersion': 'Sonoma', 'userName': 'tashimovnurkhan_5YcQMa', 'accessKey': '9cDNjxpyyqwz7VwZzC6g'}</msg>
+<var>${bstack_options}</var>
+<arg>{'os': '${os}', 'osVersion': '${os_version}', 'userName': '${BROWSERSTACK_USER}', 'accessKey': '${BROWSERSTACK_KEY}'}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-11-20T20:24:49.249909" elapsed="0.001879"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>set_capability</arg>
+<arg>bstack:options</arg>
+<arg>${bstack_options}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-11-20T20:24:49.252013" elapsed="0.000280"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:24:49.253039" level="INFO">Opening browser 'firefox' to base url 'https://www.booking.com/' through remote server at 'https://tashimovnurkhan_5YcQMa:9cDNjxpyyqwz7VwZzC6g@hub.browserstack.com/wd/hub'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>remote_url=https://${BROWSERSTACK_USER}:${BROWSERSTACK_KEY}@hub.browserstack.com/wd/hub</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-20T20:24:49.252551" elapsed="19.084818"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-11-20T20:25:08.338602" elapsed="0.267558"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${DESTINATION_INPUT}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-20T20:25:08.606785" elapsed="1.552214"/>
+</kw>
+<arg>${browser}</arg>
+<arg>${os}</arg>
+<arg>${os_version}</arg>
+<status status="PASS" start="2025-11-20T20:24:49.243176" elapsed="20.916248"/>
+</kw>
+<kw name="Change Currency" owner="keywords">
+<kw name="Remove Overlay Elements" owner="keywords">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:25:10.162440" level="INFO">Executing JavaScript:
+try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}
+Without any arguments.</msg>
+<arg>try { const el1 = document.querySelector('[id*="onetrust"]'); if (el1) el1.remove(); const el2 = document.querySelector('[id="onetrust-banner-sdk"]'); if (el2) el2.remove(); const el3 = document.querySelector('[class*="bbe73dce14"]'); if (el3) el3.remove(); const el4 = document.querySelector('[class*="cookie"]'); if (el4) el4.remove(); } catch(e) {}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:25:10.161838" elapsed="0.253540"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-20T20:25:10.917014" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-20T20:25:10.415850" elapsed="0.501443"/>
+</kw>
+<status status="PASS" start="2025-11-20T20:25:10.161517" elapsed="0.756036"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CURRENCY_BUTTON}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-20T20:25:10.917937" elapsed="0.563573"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${CURRENCY_BUTTON}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-11-20T20:25:11.482143" elapsed="0.759588"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${CURRENCY_BUTTON}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-11-20T20:25:12.242094" elapsed="0.752299"/>
+</kw>
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:25:13.245118" level="INFO">${element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="83f67ce15d21bd82c469ddffafe73f7b7c5a8fa9", element="node-DE158B92-A9F4-4C4D-B485-42EDEC647E92")&gt;</msg>
+<var>${element}</var>
+<arg>${CURRENCY_BUTTON}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2025-11-20T20:25:12.994918" elapsed="0.250331"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-11-20T20:25:13.246769" level="INFO">Executing JavaScript:
+return arguments[0].click();
+By using argument:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="83f67ce15d21bd82c469ddffafe73f7b7c5a8fa9", element="node-DE158B92-A9F4-4C4D-B485-42EDEC647E92")&gt;'</msg>
+<arg>return arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${element}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-11-20T20:25:13.245688" elapsed="0.253058"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-20T20:25:15.500163" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-20T20:25:13.499212" elapsed="2.001255"/>
+</kw>
+<status status="PASS" start="2025-11-20T20:25:10.160733" elapsed="5.340022"/>
+</kw>
+<arg>safari</arg>
+<arg>OS X</arg>
+<arg>Sonoma</arg>
+<tag>chrome</tag>
+<status status="PASS" start="2025-11-20T20:24:49.242284" elapsed="26.258656"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-11-20T20:25:15.501838" elapsed="1.784297"/>
+</kw>
+<status status="PASS" start="2025-11-20T20:24:05.998790" elapsed="71.287553"/>
+</test>
+<doc>Automated test cases for Booking.com using Robot Framework - All Browsers</doc>
+<status status="PASS" start="2025-11-20T20:19:06.086863" elapsed="371.200393"/>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Booking Tests" id="s1" pass="5" fail="0" skip="0">Booking Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

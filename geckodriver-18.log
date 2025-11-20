@@ -1,0 +1,15 @@
+1763648022789	geckodriver	INFO	Listening on 127.0.0.1:56056
+1763648022800	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" "/Users/nurkhantashimov ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/gt/6f4v4jmx555d437cvfwl7td40000gn/T/rust_mozprofileziaFU5"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1763648023100	Marionette	INFO	Marionette enabled
+1763648023243	Marionette	INFO	Listening on port 56066
+WebDriver BiDi listening on ws://127.0.0.1:56057
+Read port: 56066
+1763648023359	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
